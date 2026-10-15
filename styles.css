@@ -1,0 +1,586 @@
+:root {
+  --tkc-purple: #2a0052;
+  --tkc-purple-2: #3f3a66;
+  --tkc-blue: #6dc6e7;
+  --tkc-ink: #17143a;
+  --tkc-text: #57617a;
+  --tkc-line: #dce3ec;
+  --tkc-soft: #f4f7fb;
+  --white: #ffffff;
+  --shadow: 0 26px 70px rgba(29, 20, 62, .13);
+  --radius-xl: 34px;
+  --radius-lg: 16px;
+  --radius-md: 13px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--tkc-ink);
+  background:
+    radial-gradient(circle at 50% -10%, rgba(109,198,231,.17), transparent 34%),
+    #f3f6f9;
+  font-family: "Metropolis", "Proxima Nova", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 24px 14px;
+  display: grid;
+  place-items: center;
+}
+
+.contact-card {
+  width: min(100%, 560px);
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border: 8px solid rgba(255,255,255,.78);
+}
+
+.hero {
+  position: relative;
+  min-height: 340px;
+  padding: 28px 30px 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(86,44,163,.52), transparent 30%),
+    linear-gradient(145deg, #17002f 0%, #2a0052 48%, #3a0b66 100%);
+}
+
+.hero::after {
+  content: "TKC";
+  position: absolute;
+  right: -24px;
+  top: 118px;
+  font-size: 132px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -8px;
+  opacity: .07;
+  pointer-events: none;
+}
+
+.hero-pattern {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1.5px solid rgba(109,198,231,.72);
+  transform: rotate(45deg);
+  border-radius: 40px;
+  opacity: .8;
+}
+
+.hero-pattern--left { left: -190px; bottom: -118px; }
+.hero-pattern--right { right: -190px; top: -122px; }
+
+.brand-logo {
+  position: relative;
+  z-index: 1;
+  width: 126px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.profile-mark {
+  position: relative;
+  z-index: 1;
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  color: var(--tkc-purple);
+  background: #fff;
+  border: 5px solid rgba(109,198,231,.62);
+  box-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+
+.profile-mark svg {
+  width: 45px;
+  height: 45px;
+  stroke-width: 1.7;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: clamp(1.55rem, 6vw, 2rem);
+  line-height: 1.12;
+  letter-spacing: -.03em;
+}
+
+.role {
+  position: relative;
+  z-index: 1;
+  margin: 9px 0 0;
+  color: rgba(255,255,255,.78);
+  font-size: .98rem;
+}
+
+.content { padding: 30px 22px 20px; }
+
+.intro { text-align: center; }
+
+.intro h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 7vw, 2.3rem);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.intro h2 span { color: var(--tkc-blue); }
+
+.intro p {
+  max-width: 430px;
+  margin: 14px auto 24px;
+  color: var(--tkc-text);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.primary-actions { display: grid; gap: 12px; }
+
+.btn,
+.action-tile,
+.resource-card {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.btn:hover,
+.action-tile:hover,
+.resource-card:hover {
+  transform: translateY(-2px);
+}
+
+.btn {
+  min-height: 58px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 18px;
+  font-weight: 700;
+}
+
+.btn--primary {
+  color: white;
+  background: linear-gradient(100deg, #2a0052, #3b1469);
+  box-shadow: 0 11px 24px rgba(42,0,82,.18);
+}
+
+.btn--primary:hover { box-shadow: 0 14px 28px rgba(42,0,82,.24); }
+
+.btn--outline {
+  border: 1px solid #cbd4e1;
+  background: white;
+}
+
+.btn--outline:hover { border-color: var(--tkc-blue); }
+
+.btn-icon { display: grid; place-items: center; }
+
+.arrow {
+  margin-left: auto;
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.action-tile {
+  min-height: 78px;
+  border-radius: var(--radius-md);
+  background: var(--tkc-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.action-tile:hover { background: #eef4f8; }
+
+.tile-icon,
+.resource-icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--tkc-purple);
+}
+
+.tile-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #dff5fd;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--tkc-line);
+  margin: 24px 0;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -.015em;
+}
+
+.discover { display: grid; gap: 10px; }
+
+.resource-card {
+  min-height: 82px;
+  padding: 12px 15px;
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--tkc-line);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.resource-card:hover {
+  border-color: rgba(109,198,231,.75);
+  box-shadow: 0 10px 24px rgba(29,20,62,.07);
+}
+
+.resource-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.resource-icon--blue { background: #e8f7fd; }
+.resource-icon--lilac { background: #f7eafb; }
+
+.resource-copy {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.resource-copy strong {
+  font-size: .98rem;
+  line-height: 1.2;
+}
+
+.resource-copy small {
+  color: var(--tkc-text);
+  font-size: .83rem;
+}
+
+.resource-arrow {
+  font-size: 1.35rem;
+  color: var(--tkc-purple);
+}
+
+.fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+footer {
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid var(--tkc-line);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+  color: #7e889e;
+  font-size: .76rem;
+}
+
+footer i {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-bottom: 7px solid var(--tkc-blue);
+}
+
+@media (max-width: 420px) {
+  .page-shell { padding: 0; }
+  .contact-card {
+    min-height: 100vh;
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .hero {
+    min-height: 322px;
+    padding-inline: 20px;
+  }
+  .content { padding-inline: 16px; }
+  .action-tile {
+    min-height: 72px;
+    flex-direction: column;
+    gap: 5px;
+    font-size: .9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+/* Custom TKC icon assets */
+.btn-icon img,
+.tile-icon img,
+.resource-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.btn-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.btn--primary .btn-icon {
+  width: 31px;
+  height: 31px;
+}
+
+.tile-icon {
+  padding: 7px;
+}
+
+.resource-icon {
+  padding: 8px;
+}
+
+.resource-icon--blue,
+.resource-icon--lilac {
+  background: transparent;
+}
+
+
+/* ===== Ajustes v3 solicitados ===== */
+.profile-mark { display: none !important; }
+
+.hero {
+  min-height: 250px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  justify-content: center;
+}
+
+.brand-logo {
+  width: 148px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  margin-top: 0;
+}
+
+.role {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.btn--primary {
+  min-height: 92px;
+  padding: 20px 24px;
+  font-size: 1.15rem;
+  border-radius: 20px;
+  box-shadow: 0 16px 30px rgba(42,0,82,.22);
+}
+
+.btn--primary .btn-icon {
+  margin-right: 6px;
+}
+
+.btn-icon--whatsapp {
+  width: 44px !important;
+  height: 44px !important;
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+}
+
+.btn-icon--whatsapp img {
+  width: 44px;
+  height: 44px;
+}
+
+.btn--primary .arrow {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.btn--primary span:not(.btn-icon):not(.arrow) {
+  font-weight: 800;
+}
+
+@media (max-width: 420px) {
+  .hero {
+    min-height: 230px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .brand-logo {
+    width: 138px;
+  }
+
+  .btn--primary {
+    min-height: 84px;
+    font-size: 1.05rem;
+    padding: 18px 18px;
+  }
+
+  .btn-icon--whatsapp,
+  .btn-icon--whatsapp img {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+
+/* ===== Ajuste v4: icono de WhatsApp en blanco sobre CTA morado ===== */
+.btn--primary .btn-icon--whatsapp img {
+  filter: brightness(0) invert(1);
+}
+
+/* ===== v6 · Animación de entrada sutil ===== */
+@keyframes tkcReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tkcLogoReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes tkcPatternInLeft {
+  from { opacity: 0; transform: rotate(38deg) scale(.94); }
+  to   { opacity: .8; transform: rotate(45deg) scale(1); }
+}
+
+@keyframes tkcPatternInRight {
+  from { opacity: 0; transform: rotate(52deg) scale(.94); }
+  to   { opacity: .8; transform: rotate(45deg) scale(1); }
+}
+
+.brand-logo {
+  opacity: 0;
+  animation: tkcLogoReveal .7s cubic-bezier(.22,1,.36,1) .08s forwards;
+}
+
+.hero h1,
+.hero .role,
+.intro,
+.primary-actions,
+.discover,
+footer {
+  opacity: 0;
+  animation: tkcReveal .62s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.hero h1 { animation-delay: .18s; }
+.hero .role { animation-delay: .26s; }
+.intro { animation-delay: .34s; }
+.primary-actions { animation-delay: .44s; }
+.discover { animation-delay: .54s; }
+footer { animation-delay: .62s; }
+
+.hero-pattern--left {
+  animation: tkcPatternInLeft .9s cubic-bezier(.22,1,.36,1) .05s both;
+}
+
+.hero-pattern--right {
+  animation: tkcPatternInRight .9s cubic-bezier(.22,1,.36,1) .05s both;
+}
+
+.btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 28%, rgba(255,255,255,.16) 50%, transparent 72%);
+  transform: translateX(-135%);
+  animation: tkcCtaShine 1.1s ease .95s 1 forwards;
+  pointer-events: none;
+}
+
+@keyframes tkcCtaShine {
+  to { transform: translateX(135%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo,
+  .hero h1,
+  .hero .role,
+  .intro,
+  .primary-actions,
+  .discover,
+  footer,
+  .hero-pattern--left,
+  .hero-pattern--right,
+  .btn--primary::after {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
